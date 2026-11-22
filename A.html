@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Math Table Machine</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px gray;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        button {
+            background: blue;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: darkblue;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: darkgreen;
+        }
+
+        .line {
+            padding: 7px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🧮 Math Table Machine</h1>
+
+    <p>Enter Any Number</p>
+
+    <input type="number" id="number"
+    placeholder="Enter number">
+
+    <br>
+
+    <button onclick="generateTable()">
+        Generate Table
+    </button>
+
+    <div id="result"></div>
+
+</div>
+
+<script>
+
+function generateTable() {
+
+    let num = document.getElementById("number").value;
+
+    let result = document.getElementById("result");
+
+    if (num === "") {
+        result.innerHTML = "Please enter a number!";
+        return;
+    }
+
+    num = Number(num);
+
+    let output = "<h3>Table of " + num + "</h3>";
+
+    for (let i = 1; i <= 10; i++) {
+
+        output += "<div class='line'>"
+        + num + " × " + i + " = " + (num * i)
+        + "</div>";
+
+    }
+
+    result.innerHTML = output;
+
+}
+
+</script>
+
+</body>
+</html>
